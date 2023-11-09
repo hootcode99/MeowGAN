@@ -1,11 +1,11 @@
 import os
 import tarfile
 
-directory = os.path.dirname(__file__)
-data_directory = os.listdir(os.path.dirname(__file__))
-out_directory = directory + "\\dataset"
+current_directory = os.getcwd()
+files = os.listdir(current_directory)
+out_directory = os.path.join(current_directory, 'dataset')
 
-for file_name in data_directory:
+for file_name in files:
     if file_name.endswith("tar.gz"):
         tar = tarfile.open(file_name, "r:gz")
 
