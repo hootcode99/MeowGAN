@@ -1,5 +1,7 @@
 data/dataset
 models/__pycache__
-/.idea/
+.idea/workspace.xml
 data/__pycache__/
 /__pycache__/
+*.iml
+*.xml
