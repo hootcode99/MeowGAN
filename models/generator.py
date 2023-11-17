@@ -2,13 +2,13 @@ import torch.nn as nn
 
 
 class Generator(nn.Module):
-    def __init__(self, filters, img_chnls):
+    def __init__(self, filters, noise_dim, img_chnls):
         super().__init__()
 
         self.model = nn.Sequential(
 
             # IN: Noise Vector Dimensions
-            nn.ConvTranspose2d(img_chnls, filters * 8, kernel_size=4, stride=1, padding=0, bias=False),
+            nn.ConvTranspose2d(noise_dim, filters * 8, kernel_size=4, stride=1, padding=0, bias=False),
             nn.BatchNorm2d(filters * 8),
             nn.ReLU(True),
 
@@ -34,5 +34,5 @@ class Generator(nn.Module):
             # OUT: img_chnls x 64 x 64``
         )
 
-    def forward(self, x):z
+    def forward(self, x):
         return self.model(x)
