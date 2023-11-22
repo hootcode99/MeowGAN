@@ -27,3 +27,4 @@ class CatDataset(Dataset):
         sample = self.transforms(image_pil)
 
         return sample
+
