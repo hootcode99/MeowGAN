@@ -7,7 +7,6 @@ from torch.utils.data import Dataset
 
 
 class CatDataset(Dataset):
-    # Cat Dataset for 64 x 64 images for color classification.
     def __init__(self, path, transforms):
         if os.path.exists(path):
             self.dataset_dir = Path(path)

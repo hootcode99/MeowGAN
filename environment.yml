@@ -127,7 +127,8 @@ dependencies:
   - zlib=1.2.13=h8cc25b3_0
   - zstd=1.5.5=hd43e919_0
   - pip:
-      - natsort==8.4.0
       - torchaudio==2.1.1
       - torchvision==0.16.1
+      - torch-summary==1.4.5 
 prefix: C:\Users\Michael\miniconda3\envs\MeowGAN
+11
