@@ -2,9 +2,12 @@
 An optimized DCGAN that can generate realistic faces of cats
 
 ## Objective
-My goal was to learn more about generative deep learning models, PyTorch, & Tensorboard by implementing and optimizing the Deep Convolutional Generative Adversarial Network described by Alec Radford et al. in the original 2016 [paper](https://arxiv.org/abs/1511.06434) 
+My goal was to learn more about generative deep learning models, PyTorch, & Tensorboard by implementing and optimizing the Deep Convolutional Generative Adversarial Network described by Alec Radford et al. in the original 2016 [paper](https://arxiv.org/abs/1511.06434). 
 
 ##  Dataset 
+I chose this dataset because my girlfriend likes cats...alot.\
+I found it motivating to build something she would be fascinated by and it just makes the project more fun in general.
+
 This dataset is an aggregate of 5 other public pet (most commonly cat) color image datasets. The author of this dataset has cropped the images from the other datasets down to the faces of the cats and resized all images to 64x64 pixels. It contains many various colors and breeds of cats. There are 29,843 samples in total. This dataset is distributed as three tarball files on a public GitHub [repository](https://github.com/fferlito/Cat-faces-dataset). I manually downloaded and integrated this dataset using a Python script along with a PyTorch dataset sub-class to process and retrieve samples. Since the dataset is rather small, I manually apply an augmentation using a random horizontal flip with 50% probability. I find this dataset ideal for a training a generative image model. The small images should make the training process fast and prevent GPU memory issues during the training process. The data subjects are familiar and will make it easier to visually determine whether the model is progressing. Below is a sample set of images from the dataset.
 
 ![A sample set from the data](https://github.com/hootcode99/MeowGAN/blob/main/GAN/imgs/image_grids/cat_real_grid.png)
