@@ -40,3 +40,38 @@ layers and instead to simply use strided convolutions. The vanilla structure of 
 ### Discriminator
 ![discriminator](https://github.com/hootcode99/MeowGAN/blob/main/GAN/imgs/discriminator.png)
 
+## Challenges
+The GAN and it’s DCGAN variation are particularly unstable models. They are difficult to train because of their adversarial nature. If either the discriminator or the generator 
+obtain too much of an advantage, the losses will diverge and the GAN will collapse. This model failure is called Mode Collapse. 
+### Example of Mode Collapse (Generator Overpowers Discriminator)
+![Mode Collapse](https://github.com/hootcode99/MeowGAN/blob/main/GAN/imgs/image_grids/GAN_mode_collapse.png)
+
+Another issue that I dealt with was non-convergence. The model can stagnate and stop making meaningful progress towards convergence. Another related difficulty in training a DCGAN is 
+that there are not many meaningful metrics to determine progress aside from visual inspection of the outputs of the model. The generator and discriminator losses can be helpful when 
+determining if things have gone wrong. However, they don’t tell you much of anything (after perhaps the first few epochs) about how the GAN is progressing.
+
+## Optimizations
+- Hyperparameter Tuning
+- LR Scheduling [(Kun Li and Dae-Ki Kang, 2022)](https://www.mdpi.com/2076-3417/12/3/1191)
+- One-sided Label Smoothing [(Tim Salimans et al., 2016)](https://arxiv.org/abs/1606.03498))
+- Dropout Regularization [(Phillip Isola et al., 2016)](https://arxiv.org/abs/1611.07004)
+- Gaussian Noise [(Martin Arjovsky and Leon Bottou, 2016)](https://arxiv.org/abs/1701.04862) and [(Tim Salimans et al., 2016)](https://arxiv.org/abs/1606.03498))
+
+## Results
+With the DC-GAN, determining success is simply a qualitative visual metric. Do the generated images seem convincing? Are they improving as training progresses? Can they be distinguished from the real images? I
+would say that with this dataset, I was successful. There is a visible improvement of the optimized model over the vanilla DCGAN implementation. The only distinguishing feature between the optimized model’s 
+output and the actual images is some contrast loss. This stems from using approximate means of 0.5 during the (-1, 1) normalization processing on the images. Calculating and leveraging the true means would 
+yield more accurate contrast. Despite this, presented in a vacuum, it would still be very difficult to tell the difference. 
+
+### Vanilla DCGAN from Paper
+![Vanilla Results](https://github.com/hootcode99/MeowGAN/blob/main/GAN/imgs/image_grids/GAN_cat_vanilla.png)
+### Optimized DCGAN
+![Optimized Results](https://github.com/hootcode99/MeowGAN/blob/main/GAN/imgs/image_grids/GAN_cat_best.png)
+### Real Images (for reference)
+![Real Images](https://github.com/hootcode99/MeowGAN/blob/main/GAN/imgs/image_grids/cat_real_grid.png)
+
+## Potential Improvements
+- Implement PyTorch's checkpointing feature to improve training progress
+- Calculate the true means for the entire image dataset to fix contrast loss
+- Convert training code to PyTorch Lightning rather than leveraging Automatic Mixed Precision
+- Leverage a larger dataset (either a different subject or aggregate more cat faces on my own)
