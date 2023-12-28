@@ -75,3 +75,5 @@ yield more accurate contrast. Despite this, presented in a vacuum, it would stil
 - Calculate the true means for the entire image dataset to fix contrast loss
 - Convert training code to PyTorch Lightning rather than leveraging Automatic Mixed Precision
 - Leverage a larger dataset (either a different subject or aggregate more cat faces on my own)
+- Utilize a newer form of the DCGAN such as the WGAN
+
