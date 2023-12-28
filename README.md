@@ -12,21 +12,31 @@ This dataset is an aggregate of 5 other public pet (most commonly cat) color ima
 ## Model
 
 The GAN is a deep learning architecture influenced by the classical AI concepts of Game Playing, the Minimax algorithm, and Actor-Critic methods native to reinforcement learning. 
-This model puts two networks, a generator and discriminator, in an adversarial environment with the endgoal of refining an unsupervised deep learning representation of the data 
-to be able to generate new samples. The gen-erator network takes in a variable-sized noise vector generated from some random distribution and transforms it toproduce a convincing 
-artificial sample of the data. The discriminator network takes in real or artificial samples andmakes decisions on whether the sample is genuine. The generator is trained using the 
-discriminator’s loss on artifi-cial samples. The discriminator is trained as a standard supervised binary classification network. The formula representation of the model from the 
-original GAN paper (Goodfellow et al., 2014) appears as follows:
+This model puts two networks, a generator and discriminator, in an adversarial environment with the end-goal of refining an unsupervised deep learning representation of the data 
+to be able to generate new samples. The generator network takes in a variable-sized noise vector generated from some random distribution and transforms it to produce a convincing 
+artificial sample of the data. The discriminator network takes in real or artificial samples and makes decisions on whether the sample is genuine. The generator is trained using the 
+discriminator’s loss on artificial samples. The discriminator is trained as a standard supervised binary classification network. The formula representation of the model from the 
+original GAN paper [(Goodfellow et al., 2014)](https://arxiv.org/abs/1511.06434) appears as follows:
 
+![GAN Equation](https://github.com/hootcode99/MeowGAN/blob/main/GAN/imgs/gan_equation.png)
 
 Where D(x) represents the disciminator’s classification of a real sample x, G(z) represents an artificial sample created from noise vector z by the generator, and D(G(z)) rep-
 resents the discriminator’s classification of artificial samples. As there are only two classification options, the Binary Cross Entropy loss function is used for both the networks.
-A more pragmatic representation (similar to our actual implementation) would be to separate out the losses for discriminator and generator.
+A more pragmatic representation (similar to my actual implementation) would be to separate out the losses for discriminator and generator.
 
+### Discriminator Loss
+![Discriminator Loss](https://github.com/hootcode99/MeowGAN/blob/main/GAN/imgs/practical_discriminator_loss.png)
+### Generator Loss
+![Generator Loss](https://github.com/hootcode99/MeowGAN/blob/main/GAN/imgs/practical_generator_loss.png)
 
-
-Since our task is image generation, we will be implementing and optimizing the Deep Convolutional architecture (DC-GAN) introduced in the 2016 paper. 
+Since my task is image generation, I will be implementing and optimizing the Deep Convolutional architecture (DCGAN) introduced in the aformentioned 2016 [paper](https://arxiv.org/abs/1511.06434). 
 Rather than fully connected layers, this paper encourages the exclusive use of convolutional layers in discriminator and convolutional transpose layers 
-in the generator. The paper recommends the use of the Adam optimizer and a learning rate of 0.0002 for both networks. It also recommends avoiding pooling 
+in the generator. The paper advises the use of the Adam optimizer and a learning rate of 0.0002 for both networks. It also recommends avoiding pooling 
 layers and instead to simply use strided convolutions. The vanilla structure of the both networks are represented below.
+
+### Generator
+![generator](https://github.com/hootcode99/MeowGAN/blob/main/GAN/imgs/generator.png)
+
+### Discriminator
+![discriminator](https://github.com/hootcode99/MeowGAN/blob/main/GAN/imgs/discriminator.png)
 
