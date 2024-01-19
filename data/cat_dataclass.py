@@ -1,6 +1,5 @@
 import os
 from pathlib import Path
-from natsort import natsorted
 from PIL import Image
 
 from torch.utils.data import Dataset
@@ -10,7 +9,7 @@ class CatDataset(Dataset):
     def __init__(self, path, transforms):
         if os.path.exists(path):
             self.dataset_dir = Path(path)
-            self.all_filenames = natsorted(os.listdir(self.dataset_dir))
+            self.all_filenames = os.listdir(self.dataset_dir)
         else:
             self.dataset_dir = None
             self.all_filenames = []
