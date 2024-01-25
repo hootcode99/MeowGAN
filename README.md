@@ -21,16 +21,17 @@ artificial sample of the data. The discriminator network takes in real or artifi
 discriminator’s loss on artificial samples. The discriminator is trained as a standard supervised binary classification network. The formula representation of the model from the 
 original GAN paper [(Goodfellow et al., 2014)](https://arxiv.org/abs/1511.06434) appears as follows:
 
-![GAN Equation](https://github.com/hootcode99/MeowGAN/blob/main/GAN/imgs/gan_equation.png)
+<img src="https://github.com/hootcode99/MeowGAN/blob/main/GAN/imgs/gan_equation.png" alt="GAN Equation" width="500"/>
 
 Where D(x) represents the disciminator’s classification of a real sample x, G(z) represents an artificial sample created from noise vector z by the generator, and D(G(z)) rep-
 resents the discriminator’s classification of artificial samples. As there are only two classification options, the Binary Cross Entropy loss function is used for both the networks.
 A more pragmatic representation (similar to my actual implementation) would be to separate out the losses for discriminator and generator.
 
 ### Discriminator Loss
-![Discriminator Loss](https://github.com/hootcode99/MeowGAN/blob/main/GAN/imgs/practical_discriminator_loss.png)
+<img src="https://github.com/hootcode99/MeowGAN/blob/main/GAN/imgs/practical_discriminator_loss.png" alt="Practical Discriminator Loss" width="500"/>
+
 ### Generator Loss
-![Generator Loss](https://github.com/hootcode99/MeowGAN/blob/main/GAN/imgs/practical_generator_loss.png)
+<img src="https://github.com/hootcode99/MeowGAN/blob/main/GAN/imgs/practical_generator_loss.png" alt="Practical Generator Loss" width="400"/>
 
 Since my task is image generation, I will be implementing and optimizing the Deep Convolutional architecture (DCGAN) introduced in the aformentioned 2016 [paper](https://arxiv.org/abs/1511.06434). 
 Rather than fully connected layers, this paper encourages the exclusive use of convolutional layers in discriminator and convolutional transpose layers 
@@ -38,10 +39,10 @@ in the generator. The paper advises the use of the Adam optimizer and a learning
 layers and instead to simply use strided convolutions. The vanilla structure of the both networks are represented below.
 
 ### Generator
-![generator](https://github.com/hootcode99/MeowGAN/blob/main/GAN/imgs/generator.png)
+<img src="https://github.com/hootcode99/MeowGAN/blob/main/GAN/imgs/generator.png" alt="generator" width="400"/>
 
 ### Discriminator
-![discriminator](https://github.com/hootcode99/MeowGAN/blob/main/GAN/imgs/discriminator.png)
+<img src="https://github.com/hootcode99/MeowGAN/blob/main/GAN/imgs/discriminator.png" alt="discriminator" width="400"/>
 
 ## Challenges
 The GAN and it’s DCGAN variation are particularly unstable models. They are difficult to train because of their adversarial nature. If either the discriminator or the generator 
