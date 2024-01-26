@@ -69,8 +69,13 @@ yield more accurate contrast. Despite this, presented in a vacuum, it would stil
 
 ### Vanilla DCGAN from Paper
 ![Vanilla Results](https://github.com/hootcode99/MeowGAN/blob/main/GAN/imgs/image_grids/GAN_cat_vanilla.png)
+
 ### Optimized DCGAN
 ![Optimized Results](https://github.com/hootcode99/MeowGAN/blob/main/GAN/imgs/image_grids/GAN_cat_best.png)
+
+### Optimized DCGAN (Manually Contrast Corrected)
+![Optimized Results - Contrast Corrected](https://github.com/hootcode99/MeowGAN/blob/main/GAN/imgs/GAN_cat_best_contrastcorrected.png)
+
 ### Real Images (for reference)
 ![Real Images](https://github.com/hootcode99/MeowGAN/blob/main/GAN/imgs/image_grids/cat_real_grid.png)
 
